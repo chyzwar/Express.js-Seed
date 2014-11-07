@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/main.min.css')
+	body
+	block content
+
+	block scripts
+	script(src="/jquery/dist/jquery.min.js")
+	script(src="/bootstrap/dist/js/bootstrap.min.js")
+	script(src="/javascripts/interaction.min.js")
+
+	//- Development Only
+	|<script type='text/javascript' id="__bs_script__">
+	|//<![CDATA[
+	|  document.write("<script async src='//HOST:3001/browser-sync/browser-sync-client.1.6.3.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+	|//]]>
+	|</script>

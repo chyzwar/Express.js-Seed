@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+  section#login
+    .container
+      .row
+        .col-xs-12
+          .form-wrap
+            h1 Log in using your Email
+            form#login-form(role='form', action='/auth/login', method='post', autocomplete='off')
+              .form-group
+                label.sr-only(for='email') Email
+                input#email.form-control(type='email', name='email', placeholder='examle@mail.com')
+              .form-group
+                label.sr-only(for='password') Password
+                input#key.form-control(type='password', name='password', placeholder='Password')
+              .checkbox
+                span.character-checkbox(onclick='showPassword()')
+                span.label Show password
+              input#btn-login.btn.btn-custom.btn-lg.btn-block(type='submit', value='Log in')
+              #message
+              if message
+                h3.text-center.error-message #{message}
+            a.forget(href='javascript:;', data-toggle='modal', data-target='.forget-modal') Forgot your password?
+            hr
+
+
+  .modal.fade.forget-modal(tabindex='-1', role='dialog', aria-labelledby='myForgetModalLabel', aria-hidden='true')
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal')
+            span(aria-hidden='true') ×
+            span.sr-only Close
+          h4.modal-title Recovery password
+        .modal-body
+          p Type your email account
+          input#recovery-email.form-control(type='email', name='recovery-email', autocomplete='off')
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+          button.btn.btn-custom(type='button') Recovery
+
+
+  footer#footer
+    .container
+      .row
+        .col-xs-12
+
+block scripts
